@@ -14,14 +14,11 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await api.post('/login', {
-        email,
-        password,
-      });
+      const response = await api.post('/login', { email, password });
 
-      // Simpan token
       localStorage.setItem('token', response.data.token);
-      
+      localStorage.setItem('user', JSON.stringify(response.data.user)); 
+
       toast.success('Login berhasil!');
       navigate('/dashboard');
     } catch (error) {
