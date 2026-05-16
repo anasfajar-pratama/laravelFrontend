@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:8000/api';
+// const BASE_URL = 'http://127.0.0.1:8000/api';
+const BASE_URL = 'https://laravel-api.kebunkode.com/api';
 
 const formatRupiah = (number) =>
   new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
