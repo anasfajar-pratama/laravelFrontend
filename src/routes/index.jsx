@@ -6,6 +6,7 @@ import ProdukList from '../pages/ProdukList';
 import POSPage from '../pages/POSPage';
 import PesananPage from '../pages/PesananPage';
 import PelangganPage from '../pages/PelangganPage';
+import PembelianList from '../pages/PembelianList';
 
 
 function MainRoutes() {
@@ -19,6 +20,7 @@ function MainRoutes() {
       <Route path="/pos" element={<POSPage />} />
       <Route path="/pesanan" element={<PesananPage />} />
       <Route path="/pelanggan" element={<PelangganPage />} />
+      <Route path="/pembelian" element={<PembelianList />} />
       
     </Routes>
   );
