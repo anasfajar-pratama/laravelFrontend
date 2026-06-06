@@ -4,8 +4,8 @@ import axios from 'axios';
 import PaymentModal from '../components/pos/PaymentModal';
 import ReceiptModal from '../components/pos/ReceiptModal';
 
-// const BASE_URL = 'http://127.0.0.1:8000/api';
-const BASE_URL = 'https://laravel-api.kebunkode.com/api';
+const BASE_URL = 'http://127.0.0.1:8000/api';
+// const BASE_URL = 'https://laravel-api.kebunkode.com/api';
 
 const formatRupiah = (number) =>
   new Intl.NumberFormat('id-ID', {
@@ -178,8 +178,8 @@ export default function POSPage() {
                 <div className="w-full h-28 bg-gray-100 rounded-lg overflow-hidden mb-2 flex items-center justify-center">
                   {product.gambar ? (
                     <img
-                      // src={`http://127.0.0.1:8000/storage/${product.gambar}`}
-                      src={`https://laravel-api.kebunkode.com/storage/${product.gambar}`}
+                      src={`http://127.0.0.1:8000/storage/${product.gambar}`}
+                      // src={`https://laravel-api.kebunkode.com/storage/${product.gambar}`}
                       alt={product.nama_barang}
                       className="w-full h-full object-cover"
                     />

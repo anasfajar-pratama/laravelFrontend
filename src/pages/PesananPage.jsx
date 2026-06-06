@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-// const BASE_URL = 'http://127.0.0.1:8000/api';
-const BASE_URL = 'https://laravel-api.kebunkode.com/api';
+const BASE_URL = 'http://127.0.0.1:8000/api';
+// const BASE_URL = 'https://laravel-api.kebunkode.com/api';
 
 const formatRupiah = (number) =>
   new Intl.NumberFormat('id-ID', {
