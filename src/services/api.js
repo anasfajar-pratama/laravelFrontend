@@ -1,8 +1,15 @@
 import axios from 'axios';
 
+// Development
+const APP_URL = 'http://127.0.0.1:8000';
+
+// Production
+// const APP_URL = 'https://laravel-api.kebunkode.com';
+
+export const STORAGE_URL = `${APP_URL}/storage`;
+
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api',   // Sesuaikan dengan Laravel
-  // baseURL: 'https://laravel-api.kebunkode.com/api',   // Sesuaikan dengan Laravel
+  baseURL: `${APP_URL}/api`,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -12,9 +19,11 @@ const api = axios.create({
 // Tambahkan token jika ada
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+
   return config;
 });
 

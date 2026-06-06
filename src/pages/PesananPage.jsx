@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
-const BASE_URL = 'http://127.0.0.1:8000/api';
-// const BASE_URL = 'https://laravel-api.kebunkode.com/api';
+import api from '../services/api';
+import toast from 'react-hot-toast';
 
 const formatRupiah = (number) =>
   new Intl.NumberFormat('id-ID', {
@@ -43,7 +41,7 @@ export default function PesananPage() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/orders`, {
+      const res = await api.get(`/orders`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(res.data.data || res.data);

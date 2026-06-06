@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+
 import PaymentModal from '../components/pos/PaymentModal';
 import ReceiptModal from '../components/pos/ReceiptModal';
 
-const BASE_URL = 'http://127.0.0.1:8000/api';
-// const BASE_URL = 'https://laravel-api.kebunkode.com/api';
+import api, { STORAGE_URL } from '../services/api';
+import toast from 'react-hot-toast';
 
 const formatRupiah = (number) =>
   new Intl.NumberFormat('id-ID', {
@@ -36,7 +36,7 @@ export default function POSPage() {
 
   const fetchCurrentUser = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/user`, {
+      const res = await api.get(`/user`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCurrentUser(res.data);
@@ -48,7 +48,7 @@ export default function POSPage() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/produks`, {
+      const res = await api.get(`/produks`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = res.data.data || res.data;
@@ -178,8 +178,7 @@ export default function POSPage() {
                 <div className="w-full h-28 bg-gray-100 rounded-lg overflow-hidden mb-2 flex items-center justify-center">
                   {product.gambar ? (
                     <img
-                      src={`http://127.0.0.1:8000/storage/${product.gambar}`}
-                      // src={`https://laravel-api.kebunkode.com/storage/${product.gambar}`}
+                      src={`${STORAGE_URL}/${product.gambar}`}
                       alt={product.nama_barang}
                       className="w-full h-full object-cover"
                     />
